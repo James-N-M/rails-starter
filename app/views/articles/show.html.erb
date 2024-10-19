@@ -14,5 +14,4 @@
 <%= render @article.comments %>
 
 <h2>Add a comment:</h2>
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
 <%= render "comments/form", article: @article %>
