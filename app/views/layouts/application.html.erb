@@ -13,11 +13,32 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="min-h-full">
+      <%= render "layouts/nav" %>
+      <header class="bg-white shadow">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+        </div>
+      </header>
+
+      <main>
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <%= yield %>
+        </div>
+      </main>
+    <div>
+
+    <script>
+      function toggleUserMenu() {
+        const userMenu = document.getElementById("user-menu");
+        userMenu.style.display = userMenu.style.display === 'block' ? 'none' : 'block';
+      }
+    </script>
   </body>
 </html>
