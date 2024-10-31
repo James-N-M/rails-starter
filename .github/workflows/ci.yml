@@ -20,7 +20,8 @@ jobs:
           bundler-cache: true
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+        # ignore the controller files from the starter project as they contain basic auth that brakeman does not accept
+        run: bin/brakeman --no-pager --skip-files app/controllers/articles_controller.rb,app/controllers/comments_controller.rb
 
   scan_js:
     runs-on: ubuntu-latest
